@@ -4,7 +4,7 @@
 
 ## About the Application
 
-This is the back end of a job board application. With the front end, their are a variety of features:
+This is the back end of a job board application. With the front end, there are a variety of features:
 
  - Users can login or sign up and their information is saved via authentication
  - Users can search for specific companies or jobs
@@ -15,10 +15,10 @@ This is the back end of a job board application. With the front end, their are a
 ## Getting Started
 1. Clone the repository
 2. `cd film-finder-backend`
-3. `npm run seed` to create and set up your db
+3. `psql -f jobly.sql` to create and set up your db
 4. `npm install` to install dependencies
 5. `npm start`
 
-This repository is a Node API for the back end. Clone with the front end to have a fully function app.
+This repository is a Node API for the back end. Clone with the front end to have a fully functioning app.
 
 Have Fun!
