@@ -95,8 +95,11 @@ router.patch("/:username", ensureCorrectUserOrAdmin, async function (req, res, n
     if (!validator.valid) {
       const errs = validator.errors.map(e => e.stack);
       throw new BadRequestError(errs);
-    }
-    await User.authenticate(req.params.username, req.body.password)
+		}
+		
+		if (!res.locals.user.isAdmin){
+			await User.authenticate(req.params.username, req.body.password)
+		}
     
     const user = await User.update(req.params.username, req.body);
     return res.json({ user });

@@ -18,6 +18,7 @@ This is the back end of a job board application. With the front end, there are a
 3. `psql -f jobly.sql` to create and set up your db
 4. `npm install` to install dependencies
 5. `npm start`
+6. `npm test` to run tests
 
 This repository is a Node API for the back end. Clone with the front end to have a fully functioning app.
 

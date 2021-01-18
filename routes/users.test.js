@@ -250,7 +250,7 @@ describe("PATCH /users/:username", () => {
     const resp = await request(app)
         .patch(`/users/u1`)
         .send({
-          firstName: "New",
+					firstName: "New"
         })
         .set("authorization", `Bearer ${adminToken}`);
     expect(resp.body).toEqual({
@@ -268,7 +268,8 @@ describe("PATCH /users/:username", () => {
     const resp = await request(app)
         .patch(`/users/u1`)
         .send({
-          firstName: "New",
+					firstName: "New",
+					password: 'password1'
         })
         .set("authorization", `Bearer ${u1Token}`);
     expect(resp.body).toEqual({
@@ -319,26 +320,6 @@ describe("PATCH /users/:username", () => {
         })
         .set("authorization", `Bearer ${adminToken}`);
     expect(resp.statusCode).toEqual(400);
-  });
-
-  test("works: can set new password", async function () {
-    const resp = await request(app)
-        .patch(`/users/u1`)
-        .send({
-          password: "new-password",
-        })
-        .set("authorization", `Bearer ${adminToken}`);
-    expect(resp.body).toEqual({
-      user: {
-        username: "u1",
-        firstName: "U1F",
-        lastName: "U1L",
-        email: "user1@user.com",
-        isAdmin: false,
-      },
-    });
-    const isSuccessful = await User.authenticate("u1", "new-password");
-    expect(isSuccessful).toBeTruthy();
   });
 });
 
